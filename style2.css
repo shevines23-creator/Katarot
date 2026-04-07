@@ -1,0 +1,140 @@
+@font-face {
+      font-family: 'Freakshow';
+        src: url('freakshow.ttf');
+        }
+
+        body {
+          margin: 0;
+            font-family: Arial;
+              color: white;
+                text-align: center;
+                  background: radial-gradient(circle, #4b0082, #1a001f);
+                  }
+
+                  h1 {
+                    font-family: 'Freakshow', Arial;
+                      font-size: 50px;
+                        margin-top: 30px;
+                        }
+
+                        button {
+                          padding: 10px 20px;
+                            background: purple;
+                              color: white;
+                                border: none;
+                                  border-radius: 10px;
+                                    cursor: pointer;
+                                    }
+
+                                    .cards {
+                                      display: flex;
+                                        justify-content: center;
+                                          gap: 20px;
+                                            margin-top: 30px;
+                                            }
+
+                                            .card {
+                                              width: 120px;
+                                                height: 200px;
+                                                  perspective: 1000px;
+                                                  }
+
+                                                  .inner {
+                                                    width: 100%;
+                                                      height: 100%;
+                                                        transition: transform 0.8s;
+                                                          transform-style: preserve-3d;
+                                                          }
+
+                                                          .card.flip .inner {
+                                                            transform: rotateY(180deg);
+                                                            }
+
+                                                            .front, .back {
+                                                              position: absolute;
+                                                                width: 100%;
+                                                                  height: 100%;
+                                                                    backface-visibility: hidden;
+                                                                    }
+
+                                                                    .front img, .back img {
+                                                                      width: 100%;
+                                                                        height: 150px;
+                                                                        }
+
+                                                                        .back {
+                                                                          transform: rotateY(180deg);
+                                                                          }
+
+                                                                          .ia {
+                                                                            margin-top: 20px;
+                                                                            }
+                                                                            /* FUNDO ANIMADO */
+                                                                            body {
+                                                                              margin: 0;
+                                                                                font-family: Arial;
+                                                                                  color: white;
+                                                                                    text-align: center;
+                                                                                      overflow: hidden;
+                                                                                        position: relative;
+                                                                                        }
+
+                                                                                        body::before {
+                                                                                          content: "";
+                                                                                            position: fixed;
+                                                                                              width: 100%;
+                                                                                                height: 100%;
+                                                                                                  background: radial-gradient(circle at top, #5a00cc, #1a001f);
+                                                                                                    z-index: -1;
+                                                                                                      animation: fundoMove 15s infinite alternate;
+                                                                                                      }
+
+                                                                                                      @keyframes fundoMove {
+                                                                                                        0% { transform: scale(1); }
+                                                                                                          100% { transform: scale(1.2); }
+                                                                                                          }
+
+                                                                                                          /* ESTRELAS */
+                                                                                                          .star {
+                                                                                                            position: absolute;
+                                                                                                              background: white;
+                                                                                                                border-radius: 50%;
+                                                                                                                  opacity: 0.8;
+                                                                                                                    animation: subir linear infinite, piscar 2s infinite;
+                                                                                                                    }
+
+                                                                                                                    @keyframes subir {
+                                                                                                                      from { transform: translateY(100vh); }
+                                                                                                                        to { transform: translateY(-10vh); }
+                                                                                                                        }
+
+                                                                                                                        @keyframes piscar {
+                                                                                                                          0%,100% { opacity: 0.8; }
+                                                                                                                            50% { opacity: 0.2; }
+                                                                                                                            }
+
+                                                                                                                            /* CARTAS APARECENDO */
+                                                                                                                            .card {
+                                                                                                                              width: 120px;
+                                                                                                                                height: 200px;
+                                                                                                                                  perspective: 1000px;
+                                                                                                                                    animation: aparecer 0.5s ease;
+                                                                                                                                    }
+
+                                                                                                                                    @keyframes aparecer {
+                                                                                                                                      from {
+                                                                                                                                          transform: translateY(50px);
+                                                                                                                                              opacity: 0;
+                                                                                                                                                }
+                                                                                                                                                  to {
+                                                                                                                                                      transform: translateY(0);
+                                                                                                                                                          opacity: 1;
+                                                                                                                                                            }
+                                                                                                                                                            }
+
+                                                                                                                                                            /* HOVER MAIS BONITO */
+                                                                                                                                                            .card:hover {
+                                                                                                                                                              transform: scale(1.05);
+                                                                                                                                                                transition: 0.3s;
+                                                                                                                                                                }
+}
