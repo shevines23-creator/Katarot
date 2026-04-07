@@ -1,22 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-    <title>Katarot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Katarot</title>
 
-      <link rel="stylesheet" href="style.css">
-      </head>
+        <style>
+            @font-face {
+                  font-family: 'Freakshow';
+                        src: url('freakshow.ttf');
+                            }
 
-      <body>
+                                body {
+                                      margin: 0;
+                                            font-family: 'Freakshow', sans-serif;
+                                                  background: linear-gradient(270deg, #2e004f, #4b0082, #1a001f);
+                                                        background-size: 600% 600%;
+                                                              animation: gradientBG 10s ease infinite;
+                                                                    color: white;
+                                                                          text-align: center;
+                                                                              }
 
-      <h1>Katarot</h1>
+                                                                                  @keyframes gradientBG {
+                                                                                        0% { background-position: 0% 50%; }
+                                                                                              50% { background-position: 100% 50%; }
+                                                                                                    100% { background-position: 0% 50%; }
+                                                                                                        }
 
-      <button onclick="gerar()">Revelar Destino</button>
+                                                                                                            h1 {
+                                                                                                                  margin-top: 40px;
+                                                                                                                        font-size: 48px;
+                                                                                                                            }
 
-      <div class="cards" id="cards"></div>
+                                                                                                                                .cartas {
+                                                                                                                                      display: flex;
+                                                                                                                                            justify-content: center;
+                                                                                                                                                  flex-wrap: wrap;
+                                                                                                                                                        gap: 20px;
+                                                                                                                                                              margin-top: 40px;
+                                                                                                                                                                  }
 
-      <div class="ia" id="ia">O destino ainda está oculto.</div>
+                                                                                                                                                                      .carta {
+                                                                                                                                                                            width: 150px;
+                                                                                                                                                                                  height: 250px;
+                                                                                                                                                                                        perspective: 1000px;
+                                                                                                                                                                                              cursor: pointer;
+                                                                                                                                                                                                  }
 
-      <script src="script3.js"></script>
-      </body>
-      </html>
+                                                                                                                                                                                                      .carta-inner {
+                                                                                                                                                                                                            width: 100%;
+                                                                                                                                                                                                                  height: 100%;
+                                                                                                                                                                                                                        position: relative;
+                                                                                                                                                                                                                              transform-style: preserve-3d;
+                                                                                                                                                                                                                                    transition: transform 0.8s;
+                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                            .carta.virada .carta-inner {
+                                                                                                                                                                                                                                                  transform: rotateY(180deg);
+                                                                                                                                                                                                                                                      }
+
+                                                                                                                                                                                                                                                          .carta-front, .carta-back {
+                                                                                                                                                                                                                                                                position: absolute;
+                                                                                                                                                                                                                                                                      width: 100%;
+                                                                                                                                                                                                                                                                            height: 100%;
+                                                                                                                                                                                                                                                                                  backface-visibility: hidden;
+                                                                                                                                                                                                                                                                                        border-radius: 10px;
+                                                                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                                                                                .carta-front {
+                                                                                                                                                                                                                                                                                                      background-image: url('IMAGEM_VERSO.png');
+                                                                                                                                                                                                                                                                                                            background-size: cover;
+                                                                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                                                                    .carta-back {
+                                                                                                                                                                                                                                                                                                                          transform: rotateY(180deg);
+                                                                                                                                                                                                                                                                                                                                background-size: cover;
+                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                      </style>
+                                                                                                                                                                                                                                                                                                                                      </head>
+
+                                                                                                                                                                                                                                                                                                                                      <body>
+
+                                                                                                                                                                                                                                                                                                                                      <h1>KATAROT</h1>
+                                                                                                                                                                                                                                                                                                                                      <p>Clique nas cartas para revelar seu destino</p>
+
+                                                                                                                                                                                                                                                                                                                                      <div class="cartas">
+
+                                                                                                                                                                                                                                                                                                                                        <div class="carta" onclick="virar(this, 'IMAGEM_Estrela.png')">
+                                                                                                                                                                                                                                                                                                                                            <div class="carta-inner">
+                                                                                                                                                                                                                                                                                                                                                  <div class="carta-front"></div>
+                                                                                                                                                                                                                                                                                                                                                        <div class="carta-back"></div>
+                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                              </div>
+
+                                                                                                                                                                                                                                                                                                                                                                <div class="carta" onclick="virar(this, 'IMAGEM_Mago.png')">
+                                                                                                                                                                                                                                                                                                                                                                    <div class="carta-inner">
+                                                                                                                                                                                                                                                                                                                                                                          <div class="carta-front"></div>
+                                                                                                                                                                                                                                                                                                                                                                                <div class="carta-back"></div>
+                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                      </div>
+
+                                                                                                                                                                                                                                                                                                                                                                                        <div class="carta" onclick="virar(this, 'IMAGEM_Torre.png')">
+                                                                                                                                                                                                                                                                                                                                                                                            <div class="carta-inner">
+                                                                                                                                                                                                                                                                                                                                                                                                  <div class="carta-front"></div>
+                                                                                                                                                                                                                                                                                                                                                                                                        <div class="carta-back"></div>
+                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                <div class="carta" onclick="vir
